@@ -1,0 +1,13 @@
+.backgroundImage{
+  background: url('public/images/BackgroundImage.jpg') no-repeat;
+  background-size: cover;
+}
+footer{
+  background-color: #DB2828;
+}
+.redBackground{
+  background-color: #DB2828;
+}
+body{
+  background-color: #DB2828;
+}
