@@ -1,13 +1,13 @@
 .backgroundImage{
-  background: url('public/images/BackgroundImage.jpg') no-repeat;
+  background: url('https://wallpaperaccess.com/full/436964.jpg') no-repeat center center;
   background-size: cover;
 }
 footer{
-  background-color: #DB2828;
+  background-color: #21BA45;
 }
 .redBackground{
-  background-color: #DB2828;
+  background-color: #21BA45;
 }
 body{
-  background-color: #DB2828;
+  background-color: #21BA45;
 }
