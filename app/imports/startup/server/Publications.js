@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Contacts } from '../../api/contact/Contacts';
 import { Notes } from '../../api/note/Notes';
+import { Clubs } from'../../api/club/Clubs';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -27,6 +28,13 @@ Meteor.publish(Notes.userPublicationName, function () {
   }
   return this.ready();
 });
+Meteor.publish(Clubs.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Clubs.collection.find();
+  }
+  return this.ready();
+});
 
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
@@ -45,6 +53,13 @@ Meteor.publish(Contacts.adminPublicationName, function () {
 Meteor.publish(Notes.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Notes.collection.find();
+  }
+  return this.ready();
+});
+Meteor.publish(Clubs.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Clubs.collection.find();
   }
   return this.ready();
 });
