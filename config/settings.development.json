@@ -3,10 +3,29 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
-  "defaultClubs" : [{
-    "clubName": "IEEE-HKN", "location": "UH Manoa", "image": "https://hknhawaii.weebly.com/uploads/7/5/3/8/7538427/screen-shot-2019-10-21-at-8-54-58-pm_orig.png",
-    "description": "Electrical engineering honor society", "Admin": "john@foo.com", "category": "Engineering"
-  }],
+  "defaultClubs" : [
+    { "clubName": "IEEE-HKN",
+      "website": "https://hknhawaii.weebly.com/",
+      "image": "https://hknhawaii.weebly.com/uploads/7/5/3/8/7538427/screen-shot-2019-10-21-at-8-54-58-pm_orig.png",
+    "description": "International honor society for electrical and computer engineers",
+      "Admin": "john@foo.com",
+      "category": "Engineering"
+  },
+    { "clubName": "Academy for Creative Media",
+      "website": "http://acm.hawaii.edu/",
+      "image": "https://acmsystem.hawaii.edu/wp-content/uploads/2015/11/ACMlogo_stacked_200x200.png",
+      "description": "Explore creative media forms rooted in personal experience and place-based learning through animation, critical studies, digital cinema, and screenwriting.",
+      "Admin": "john@foo.com",
+      "category": "Arts"
+    },
+    { "clubName": "American Marketing Association",
+      "website": "http://amauhm.org/#",
+      "image": "https://images.squarespace-cdn.com/content/v1/579c226d2994ca7a060c39e4/1583870462337-NEKKZ508JJNLMF2WYBKQ/ke17ZwdGBToddI8pDm48kMbhQVpCayrFMzhfkvtyUTZZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpx4uDObEP4I8Ucn8WxQISeY8cWrKxlXHLf34yygto9v7wVSqUv3voRPWKSyFMB-RcM/image-asset.jpeg?format=257w",
+      "description": "Creating connections, strengthening bonds, and growing in personal and professional ways",
+      "Admin": "john@foo.com",
+      "category": "Business"
+    }
+  ],
 
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },

@@ -11,6 +11,8 @@ class Club extends React.Component {
           <Card.Content>
             <Image
                 src={this.props.club.image}
+                fluid
+                className='image'
             />
             <Card.Header>{this.props.club.clubName}</Card.Header>
             <Card.Meta>{this.props.club.location}</Card.Meta>
@@ -30,7 +32,6 @@ class Club extends React.Component {
 /** Require a document to be passed to this component. */
 Club.propTypes = {
   club: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

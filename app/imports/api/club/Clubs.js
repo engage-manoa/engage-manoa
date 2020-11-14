@@ -12,7 +12,7 @@ class ClubsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       clubName: String,
-      location: String,
+      website: String,
       image: String,
       description: String,
       Admin: String,

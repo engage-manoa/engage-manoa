@@ -11,3 +11,7 @@ footer{
 body{
   background-color: #21BA45;
 }
+.image{
+  width: 262px !important;
+  height: 262px !important;
+}
