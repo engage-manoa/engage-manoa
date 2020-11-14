@@ -3,6 +3,10 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
+  "defaultClubs" : [{
+    "clubName": "IEEE-HKN", "location": "UH Manoa", "image": "https://hknhawaii.weebly.com/uploads/7/5/3/8/7538427/screen-shot-2019-10-21-at-8-54-58-pm_orig.png",
+    "description": "Electrical engineering honor society", "Admin": "john@foo.com", "category": "Engineering"
+  }],
 
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
