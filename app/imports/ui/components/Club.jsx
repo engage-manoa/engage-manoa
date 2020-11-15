@@ -15,11 +15,10 @@ class Club extends React.Component {
                 className='image'
             />
             <Card.Header>{this.props.club.clubName}</Card.Header>
-            <Card.Meta>{this.props.club.location}</Card.Meta>
+            <Card.Meta>{this.props.club.category}</Card.Meta>
             <Card.Description>
               {this.props.club.description}
             </Card.Description>
-            <Card.Meta>{this.props.club.category}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
             <Link to={`/edit/${this.props.club._id}`}>Edit Info</Link>
