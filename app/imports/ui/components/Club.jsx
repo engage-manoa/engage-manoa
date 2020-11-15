@@ -22,7 +22,7 @@ class Club extends React.Component {
             <Card.Meta>{this.props.club.category}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/edit/${this.props.club._id}`}>Edit</Link>
+            <Link to={`/edit/${this.props.club._id}`}>Edit Info</Link>
           </Card.Content>
         </Card>
     );
