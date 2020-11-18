@@ -15,3 +15,6 @@ body{
   width: 262px !important;
   height: 262px !important;
 }
+.border{
+  border: 1px solid black;
+}

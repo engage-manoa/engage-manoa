@@ -9,21 +9,18 @@ class Club extends React.Component {
   render() {
     return (
         <Card centered>
-          <Card.Content>
-            <Image
-                src={this.props.club.image}
-                fluid
-                className='image'
-            />
-            <Card.Header>{this.props.club.clubName}</Card.Header>
-            <Card.Meta>{this.props.club.category}</Card.Meta>
-            <Card.Description>
-              {this.props.club.description}
-            </Card.Description>
+          <Card.Content><Image
+              src={this.props.club.image}
+              style={{ width: 262, height: 262 }}
+              rounded
+              bordered
+          />
           </Card.Content>
-          <Card.Content extra>
-            {Meteor.user().username === this.props.club.Admin ? <Link to={`/edit/${this.props.club._id}`}>Edit Info</Link> : '' }
-          </Card.Content>
+          <Card.Content><Card.Header as='h3' textAlign='center'>{this.props.club.clubName}</Card.Header></Card.Content>
+          <Card.Content><Card.Meta textAlign='center' className='border'>{this.props.club.category}</Card.Meta></Card.Content>
+          <Card.Content as='h4'>Club Description: <Card.Description>{this.props.club.description}</Card.Description></Card.Content>
+          {Meteor.user().username === this.props.club.Admin ?
+              <Card.Content extra><Link to={`/edit/${this.props.club._id}`}>Edit Info</Link> </Card.Content> : '' }
         </Card>
     );
   }

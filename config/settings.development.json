@@ -33,6 +33,7 @@
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
+
   "defaultContacts": [{
     "firstName": "Philip", "lastName": "Johnson", "address": "POST 307, University of Hawaii",
     "owner": "john@foo.com",
@@ -51,5 +52,10 @@
       "image": "https://www.ics.hawaii.edu/wp-content/uploads/2013/08/kim_binsted-square-300x300.jpg",
       "description": "Kim Binsted received her BSc in Physics at McGill (1991), and her PhD in Artificial Intelligence from the University of Edinburgh (1996). Her thesis topic was the computational modeling and generation of punning riddles, and her program, JAPE (Joke Analysis and Production Engine), generated puns such as , 'What do you call a Martian who drinks beer? An ale-ien!'."
     }
-  ]
+  ],
+
+  "monti": {
+    "appId": "changeme",
+    "appSecret": "changeme"
+  }
 }

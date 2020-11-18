@@ -1,26 +1,13 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
 import { Clubs } from '../../api/club/Clubs';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
-const formSchema = new SimpleSchema({
-  clubName: String,
-  website: String,
-  image: String,
-  description: String,
-  Admin: String,
-  category: {
-    type: String,
-    allowedValues: ['Business', 'Engineering', 'Arts', 'Music', 'Other'],
-    defaultValue: 'Other',
-  },
-});
 
-const bridge = new SimpleSchema2Bridge(formSchema);
+const bridge = new SimpleSchema2Bridge(Clubs.schema);
 
 /** Renders the Page for adding a document. */
 class AddClub extends React.Component {
@@ -45,7 +32,7 @@ class AddClub extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Add Contact</Header>
+            <Header as="h2" textAlign="center" inverted>Add Club</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='clubName'/>
@@ -53,7 +40,7 @@ class AddClub extends React.Component {
                 <TextField name='image'/>
                 <LongTextField name='description'/>
                 <TextField name='Admin'/>
-                <TextField name='category'/>
+                <SelectField name='category'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
