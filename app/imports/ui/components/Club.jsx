@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Club extends React.Component {
@@ -21,7 +22,7 @@ class Club extends React.Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/edit/${this.props.club._id}`}>Edit Info</Link>
+            {Meteor.user().username === this.props.club.Admin ? <Link to={`/edit/${this.props.club._id}`}>Edit Info</Link> : '' }
           </Card.Content>
         </Card>
     );

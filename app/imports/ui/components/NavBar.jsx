@@ -16,9 +16,7 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>Engage-Manoa</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Contact</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/listcontacts" key='list'>List Contacts</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/listclubs" key='list'>List Clubs</Menu.Item>,
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/listclubs" key='list'>List Clubs</Menu.Item>,
             ]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
