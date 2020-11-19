@@ -8,24 +8,18 @@ class AdminClub extends React.Component {
   render() {
     return (
         <Card centered>
-          <Card.Content>
-            <Image
-                floated='right'
-                size='mini'
-                src={this.props.contact.image}
+            <Card.Content><Image
+                src={this.props.club.image}
+                style={{ width: 262, height: 262 }}
+                rounded
+                bordered
             />
-            <Card.Header>{this.props.contact.firstName} {this.props.contact.lastName}</Card.Header>
-            <Card.Meta>{this.props.contact.address}</Card.Meta>
-            <Card.Description>
-              {this.props.contact.description}
-            </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            {this.props.contact.owner}
-          </Card.Content>
-          <Card.Content extra>
-            <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
-          </Card.Content>
+            </Card.Content>
+            <Card.Content><Card.Header as='h3' textAlign='center'><a href={this.props.club.website}>{this.props.club.clubName}</a></Card.Header></Card.Content>
+            <Card.Content><Card.Meta textAlign='center' className='border'>{this.props.club.category}</Card.Meta></Card.Content>
+            <Card.Content as='h4'>Club Description: <Card.Description>{this.props.club.description}</Card.Description></Card.Content>
+            <Card.Content>Contact admin at: {this.props.club.Admin}</Card.Content>
+            <Card.Content extra><Link to={`/edit/${this.props.club._id}`}>Edit Info</Link></Card.Content>
         </Card>
     );
   }
@@ -33,7 +27,7 @@ class AdminClub extends React.Component {
 
 /** Require a document to be passed to this component. */
 AdminClub.propTypes = {
-  contact: PropTypes.object.isRequired,
+  club: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

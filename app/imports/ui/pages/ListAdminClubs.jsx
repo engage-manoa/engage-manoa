@@ -7,7 +7,7 @@ import { Clubs } from '../../api/club/Clubs';
 import AdminClub from '../components/AdminClub';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListClubs extends React.Component {
+class ListAdminClubs extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
 
   render() {
@@ -21,7 +21,7 @@ class ListClubs extends React.Component {
           <Container>
             <Header inverted as="h2" textAlign="center">List Clubs (Admin)</Header>
             <CardGroup>
-              {this.props.clubs.map((contact, index) => <AdminClub key={index} contact={contact}/>)}
+              {this.props.clubs.map((club, index) => <AdminClub key={index} club={club}/>)}
             </CardGroup>
           </Container>
         </div>
@@ -30,7 +30,7 @@ class ListClubs extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-ListClubs.propTypes = {
+ListAdminClubs.propTypes = {
   clubs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -43,4 +43,4 @@ export default withTracker(() => {
     clubs: Clubs.collection.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(ListClubs);
+})(ListAdminClubs);
