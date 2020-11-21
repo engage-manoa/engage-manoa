@@ -20,6 +20,7 @@ class ListClubs extends React.Component {
   clearTags() {
     tagFilter = [];
     console.log(tagFilter);
+    this.forceUpdate();
   }
 
   printTags() {
