@@ -7,8 +7,8 @@ import { _ } from 'meteor/underscore';
 import { Clubs } from '../../api/club/Clubs';
 import Club from '../components/Club';
 
-let tagFilter = [];
-const allTags = ['Business', 'Engineering', 'Arts', 'Music', 'Other'];
+let tagFilter = []; // array to hold tags that we are filtering for
+const allTags = ['Business', 'Engineering', 'Arts', 'Music', 'Other']; // list of tags you can sellect to filter for
 
 class ListClubs extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -20,13 +20,14 @@ class ListClubs extends React.Component {
   clearTags() {
     tagFilter = [];
     console.log(tagFilter);
-    this.forceUpdate();
+    this.forceUpdate(); // technically shouldn't be useing foceUpdate, should change later
   }
 
   printTags() {
     console.log(tagFilter);
   }
 
+  // checks if the tag is in the list being filtered for, if it is then it is removed. If it isn't it is added
   handleTags(tag) {
     const num = tagFilter.indexOf(tag);
     if (num === -1) {
@@ -37,7 +38,7 @@ class ListClubs extends React.Component {
     }
     console.log(tagFilter);
     console.log(tagFilter.indexOf(tag) !== -1);
-    this.forceUpdate();
+    this.forceUpdate(); // see above comment on force update
   }
 
   render() {
@@ -68,6 +69,7 @@ class ListClubs extends React.Component {
               <Container>
                 <CardGroup>
                   {_.filter(this.props.clubs, function (club) {
+                    // if no tags are being filtered then all clubs are shown, otherwise we check if the club's category is among those being filtered
                       if (tagFilter.length === 0) {
                         return true;
                       }
