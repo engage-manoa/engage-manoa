@@ -1,13 +1,14 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { CardGroup, Container, Header, Loader } from 'semantic-ui-react';
+import { Button, CardGroup, Checkbox, Container, Header, Loader, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { Clubs } from '../../api/club/Clubs';
 import Club from '../components/Club';
 
-const tagFilter = ['Engineering'];
+let tagFilter = [];
+const allTags = ['Business', 'Engineering', 'Arts', 'Music', 'Other'];
 
 class ListClubs extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -15,6 +16,28 @@ class ListClubs extends React.Component {
   // filterClubs() {
   //   return _.filter(this.props.clubs, function () { return true; });
   // }
+
+  clearTags() {
+    tagFilter = [];
+    console.log(tagFilter);
+  }
+
+  printTags() {
+    console.log(tagFilter);
+  }
+
+  handleTags(tag) {
+    const num = tagFilter.indexOf(tag);
+    if (num === -1) {
+      tagFilter.push(tag);
+    } else {
+      tagFilter[num] = tagFilter[tagFilter.length - 1];
+      tagFilter.pop();
+    }
+    console.log(tagFilter);
+    console.log(tagFilter.indexOf(tag) !== -1);
+    this.forceUpdate();
+  }
 
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -24,19 +47,40 @@ class ListClubs extends React.Component {
   renderPage() {
     return (
         <div className='redBackground'>
-          <Container>
-            <Header inverted as="h2" textAlign="center">List of Available Clubs</Header>
-            <CardGroup>
-              {_.filter(this.props.clubs, function (club) {
-                  for (let i = 0; i < tagFilter.length; i++) {
-                     if (club.category === tagFilter[i]) {
-                       return true;
-                     }
-                  }
-                  return false;
-}).map((club, index) => <Club key={index} club={club}/>)}
-            </CardGroup>
-          </Container>
+          <Header inverted as="h2" textAlign="center">List of Available Clubs</Header>
+          <Grid>
+            <Grid.Column width={1}>
+            </Grid.Column>
+            <Grid.Column width={3}>
+              <Container>
+                <Grid>
+                  {allTags.map((value, index) => <Grid.Row key={index}>
+                    <Checkbox checked = {tagFilter.indexOf(value) !== -1} label={value} onClick={() => this.handleTags(value) }/>    </Grid.Row>)}
+                  <Grid.Row>   </Grid.Row>
+                </Grid>
+                <Button content='Clear All' onClick={() => this.clearTags() } />
+                <Button content='Print Tags' onClick={() => this.printTags() } />
+              </Container>
+            </Grid.Column>
+
+            <Grid.Column width={12}>
+              <Container>
+                <CardGroup>
+                  {_.filter(this.props.clubs, function (club) {
+                      if (tagFilter.length === 0) {
+                        return true;
+                      }
+                      for (let i = 0; i < tagFilter.length; i++) {
+                         if (club.category === tagFilter[i]) {
+                           return true;
+                         }
+                      }
+                      return false;
+    }).map((club, index) => <Club key={index} club={club}/>)}
+                </CardGroup>
+              </Container>
+            </Grid.Column>
+          </Grid>
         </div>
     );
   }
