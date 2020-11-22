@@ -36,8 +36,8 @@ export default class AddToMyClub extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-              <Segment>
-                <SubmitField value='Add'/>
+
+                <SubmitField position='centered' value='Add to My Clubs'/>
                 <ErrorsField/>
                 <HiddenField name='clubName' value={this.props.clubName}/>
                 <HiddenField name='website' value={this.props.website}/>
@@ -46,7 +46,7 @@ export default class AddToMyClub extends React.Component {
                 <HiddenField name='Admin' value={this.props.Admin}/>
                 <HiddenField name='category' value={this.props.category}/>
                 <HiddenField name='member' value={this.props.member}/>
-              </Segment>
+
             </AutoForm>
           </Grid.Column>
         </Grid>
@@ -60,4 +60,5 @@ AddToMyClub.propTypes = {
   description: PropTypes.string.isRequired,
   Admin: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
+  member: PropTypes.string.isRequired,
 };
