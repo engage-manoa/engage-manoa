@@ -35,7 +35,8 @@ class Club extends React.Component {
                     image={this.props.club.image}
                     description={this.props.club.description}
                     Admin={this.props.club.Admin}
-                    category={this.props.club.category}/>
+                    category={this.props.club.category}
+                    member={Meteor.user().username}/>
               </Card.Content>
         </Card>
     );

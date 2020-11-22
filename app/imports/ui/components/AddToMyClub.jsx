@@ -45,6 +45,7 @@ export default class AddToMyClub extends React.Component {
                 <HiddenField name='description' value={this.props.description}/>
                 <HiddenField name='Admin' value={this.props.Admin}/>
                 <HiddenField name='category' value={this.props.category}/>
+                <HiddenField name='member' value={this.props.member}/>
               </Segment>
             </AutoForm>
           </Grid.Column>

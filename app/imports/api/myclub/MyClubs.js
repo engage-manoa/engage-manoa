@@ -16,6 +16,7 @@ class MyClubsCollection {
       image: String,
       description: String,
       Admin: String,
+      member: String,
       category: {
         type: String,
         allowedValues: ['Business', 'Engineering', 'Arts', 'Music', 'Other'],
