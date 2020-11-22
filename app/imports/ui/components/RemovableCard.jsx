@@ -1,12 +1,16 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import AddToMyClub from './AddToMyClub';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Club extends React.Component {
+class RemovableCard extends React.Component {
+
+  removeItem(docID) {
+    this.props.MyClubs.collection.remove(docID);
+  }
+
   render() {
     return (
         <Card centered>
@@ -18,7 +22,8 @@ class Club extends React.Component {
           />
           </Card.Content>
           <Card.Content>
-            <Card.Header as='h3' textAlign='center'><a href={this.props.club.website}>{this.props.club.clubName}</a></Card.Header>
+            <Card.Header as='h3' textAlign='center'><a
+                href={this.props.club.website}>{this.props.club.clubName}</a></Card.Header>
           </Card.Content>
           <Card.Content>
             <Card.Meta textAlign='center' className='border'>{this.props.club.category}</Card.Meta>
@@ -27,25 +32,23 @@ class Club extends React.Component {
             <Card.Description>{this.props.club.description}</Card.Description>
           </Card.Content>
           {Meteor.user().username === this.props.club.Admin ?
-              <Card.Content extra><Link to={`/edit/${this.props.club._id}`}>Edit Info</Link> </Card.Content> : <Card.Content>Contact admin at: {this.props.club.Admin}</Card.Content>}
-              <Card.Content extra>
-                <AddToMyClub
-                    clubName={this.props.club.clubName}
-                    website={this.props.club.website}
-                    image={this.props.club.image}
-                    description={this.props.club.description}
-                    Admin={this.props.club.Admin}
-                    category={this.props.club.category}/>
-              </Card.Content>
+              <Card.Content extra><Link to={`/edit/${this.props.club._id}`}>Edit Info</Link> </Card.Content> :
+              <Card.Content>Contact admin at: {this.props.club.Admin}</Card.Content>}
+          <Card.Content extra>
+            <Button icon onClick={() => this.removeItem(this.props.club._id)}>
+              <Icon name='trash'/>
+            </Button>
+          </Card.Content>
         </Card>
     );
   }
 }
 
 /** Require a document to be passed to this component. */
-Club.propTypes = {
+RemovableCard.propTypes = {
   club: PropTypes.object.isRequired,
+  MyClubs: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Club);
+export default withRouter(RemovableCard);

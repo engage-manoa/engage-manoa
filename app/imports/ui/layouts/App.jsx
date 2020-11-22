@@ -17,6 +17,7 @@ import ListContacts from '../pages/ListContacts';
 import AddContact from '../pages/AddContact';
 import ListClubs from '../pages/ListClubs';
 import AddClub from '../pages/AddClub';
+import ListMyClubs from '../pages/ListMyClubs';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -31,6 +32,7 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/listcontacts" component={ListContacts}/>
+              <ProtectedRoute path="/listmyclubs" component={ListMyClubs}/>
               <ProtectedRoute path="/listclubs" component={ListClubs}/>
               <ProtectedRoute path="/add" component={AddContact}/>
               <ProtectedRoute path="/edit/:_id" component={EditClub}/>
