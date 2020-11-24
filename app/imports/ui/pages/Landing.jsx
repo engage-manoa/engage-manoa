@@ -7,7 +7,7 @@ class Landing extends React.Component {
     return (
         <div className='backgroundImage'>
           <Grid stackable centered container columns={2}>
-            <Grid.Column textAlign='center'style={{marginTop: 200, marginBottom: 200}}>
+            <Grid.Column textAlign='center'style={ { marginTop: 200, marginBottom: 200 } }>
               <Icon inverted size='huge' name='users'/>
               <Header inverted as='h1'>
               Join UHM Clubs
@@ -17,7 +17,7 @@ class Landing extends React.Component {
               </Header>
             </Grid.Column>
 
-            <Grid.Column textAlign='center' style={{marginTop: 200, marginBottom: 200}}>
+            <Grid.Column textAlign='center' style={ { marginTop: 200, marginBottom: 200 } }>
               <Icon inverted size='huge' name='file alternate'/>
               <Header inverted as='h1'>
                 Create New Clubs
