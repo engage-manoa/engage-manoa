@@ -13,18 +13,16 @@ const allTags = ['Business', 'Engineering', 'Arts', 'Music', 'Other']; // list o
 class ListClubs extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
 
-  // filterClubs() {
-  //   return _.filter(this.props.clubs, function () { return true; });
-  // }
+  constructor(props) {
+    super(props);
+    this.state = { tagFilterState: [] };
+  }
 
   clearTags() {
     tagFilter = [];
-    console.log(tagFilter);
-    this.forceUpdate(); // technically shouldn't be useing foceUpdate, should change later
-  }
-
-  printTags() {
-    console.log(tagFilter);
+    this.setState({
+      tagFilterState: tagFilter,
+    });
   }
 
   // checks if the tag is in the list being filtered for, if it is then it is removed. If it isn't it is added
@@ -36,9 +34,9 @@ class ListClubs extends React.Component {
       tagFilter[num] = tagFilter[tagFilter.length - 1];
       tagFilter.pop();
     }
-    console.log(tagFilter);
-    console.log(tagFilter.indexOf(tag) !== -1);
-    this.forceUpdate(); // see above comment on force update
+    this.setState({
+      tagFilterState: tagFilter,
+    });
   }
 
   render() {
