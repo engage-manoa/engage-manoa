@@ -1,13 +1,19 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Loader, Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
 import AddToMyClub from './AddToMyClub';
+import { MyClubs } from '../../api/myclub/MyClubs';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Club extends React.Component {
   render() {
+    return (this.props.ready) ? this.renderCard() : <Loader active>Getting Data</Loader>;
+  }
+
+  renderCard() {
     return (
         <Card centered>
           <Card.Content><Image
@@ -28,16 +34,12 @@ class Club extends React.Component {
           </Card.Content>
           {Meteor.user().username === this.props.club.Admin ?
               <Card.Content extra><Link to={`/edit/${this.props.club._id}`}>Edit Info</Link> </Card.Content> : <Card.Content>Contact admin at: {this.props.club.Admin}</Card.Content>}
+          {/* eslint-disable-next-line no-undef */}
+          {_.contains(_.pluck(this.props.userClubs, 'clubId'), this.props.club._id) ? '' :
               <Card.Content extra>
-                <AddToMyClub
-                    clubName={this.props.club.clubName}
-                    website={this.props.club.website}
-                    image={this.props.club.image}
-                    description={this.props.club.description}
-                    Admin={this.props.club.Admin}
-                    category={this.props.club.category}
-                    member={Meteor.user().username}/>
-              </Card.Content>
+                {/* eslint-disable-next-line no-undef */}
+            <AddToMyClub userClubs={_.pluck(this.props.userClubs)} clubId={this.props.club._id}/>
+          </Card.Content>}
         </Card>
     );
   }
@@ -46,7 +48,15 @@ class Club extends React.Component {
 /** Require a document to be passed to this component. */
 Club.propTypes = {
   club: PropTypes.object.isRequired,
+  ready: PropTypes.bool.isRequired,
+  userClubs: PropTypes.array.isRequired,
 };
 
-/** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Club);
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe(MyClubs.userPublicationName);
+  return {
+    userClubs: MyClubs.collection.find({}).fetch().filter(current => current.member === Meteor.user().username),
+    ready: subscription.ready(),
+  };
+})(Club);

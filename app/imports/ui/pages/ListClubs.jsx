@@ -21,6 +21,7 @@ class ListClubs extends React.Component {
           <Container>
             <Header inverted as="h2" textAlign="center">List of Available Clubs</Header>
             <CardGroup>
+              {this.props.clubs.map(club => console.log(club))}
               {this.props.clubs.map((club, index) => <Club key={index} club={club}/>)}
             </CardGroup>
           </Container>

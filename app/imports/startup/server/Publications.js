@@ -31,7 +31,6 @@ Meteor.publish(Notes.userPublicationName, function () {
 });
 Meteor.publish(Clubs.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
     return Clubs.collection.find();
   }
   return this.ready();
@@ -66,14 +65,12 @@ Meteor.publish(Notes.adminPublicationName, function () {
 });
 Meteor.publish(Clubs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    const username = Meteor.users.findOne(this.userId).username;
     return Clubs.collection.find();
   }
   return this.ready();
 });
 Meteor.publish(MyClubs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    const username = Meteor.users.findOne(this.userId).username;
     return MyClubs.collection.find();
   }
   return this.ready();

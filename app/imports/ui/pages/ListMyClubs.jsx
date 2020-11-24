@@ -4,6 +4,7 @@ import { CardGroup, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { MyClubs } from '../../api/myclub/MyClubs';
+import { Clubs } from '../../api/club/Clubs';
 import RemovableCard from '../components/RemovableCard';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -21,7 +22,7 @@ class ListMyClubs extends React.Component {
           <Container>
             <Header inverted as="h2" textAlign="center">List of My Clubs</Header>
             <CardGroup>
-              {this.props.myclubs.map((club, index) => <RemovableCard key={index} club={club} MyClubs={MyClubs}/>)}
+              {this.props.myClubs.map((myClub, index) => <RemovableCard key={index} id={myClub._id} club={this.props.clubs.filter(current => current._id === myClub.clubId)}/>)}
             </CardGroup>
           </Container>
         </div>
@@ -31,7 +32,8 @@ class ListMyClubs extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 ListMyClubs.propTypes = {
-  myclubs: PropTypes.array.isRequired,
+  myClubs: PropTypes.array.isRequired,
+  clubs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -39,8 +41,10 @@ ListMyClubs.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(MyClubs.userPublicationName);
+  const subscription2 = Meteor.subscribe(Clubs.userPublicationName);
   return {
-    myclubs: MyClubs.collection.find({}).fetch(),
-    ready: subscription.ready(),
+    myClubs: MyClubs.collection.find({}).fetch(),
+    clubs: Clubs.collection.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(ListMyClubs);
