@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import AddToMyClub from './AddToMyClub';
+import { _ } from 'meteor/underscore';
 import { MyClubs } from '../../api/myclub/MyClubs';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -34,10 +35,8 @@ class Club extends React.Component {
           </Card.Content>
           {Meteor.user().username === this.props.club.Admin ?
               <Card.Content extra><Link to={`/edit/${this.props.club._id}`}>Edit Info</Link> </Card.Content> : <Card.Content>Contact admin at: {this.props.club.Admin}</Card.Content>}
-          {/* eslint-disable-next-line no-undef */}
           {_.contains(_.pluck(this.props.userClubs, 'clubId'), this.props.club._id) ? '' :
               <Card.Content extra>
-                {/* eslint-disable-next-line no-undef */}
             <AddToMyClub userClubs={_.pluck(this.props.userClubs)} clubId={this.props.club._id}/>
           </Card.Content>}
         </Card>
