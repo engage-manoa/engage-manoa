@@ -12,13 +12,23 @@ class ClubsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       clubName: String,
-      website: String,
-      image: String,
-      description: String,
+      website: {
+        type: String,
+        required: false,
+      },
+      image: {
+        type: String,
+        required: false,
+      },
+      description: {
+        type: String,
+        required: false,
+      },
       Admin: String,
       category: {
         type: String,
         allowedValues: ['Business', 'Engineering', 'Arts', 'Music', 'Other'],
+        required: false,
         defaultValue: 'Other',
       },
     }, { tracker: Tracker });
