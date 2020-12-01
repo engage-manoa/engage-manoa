@@ -17,7 +17,7 @@ function addClubs(data) {
   console.log(`  Adding: ${data.clubName} (${data.Admin})`);
   Clubs.collection.insert(data);
 }
-
+// converts csv to JSON format
 function csvJSON(csv) {
   const lines = csv.split('\n');
   const ans = {
