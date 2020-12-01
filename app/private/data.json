@@ -1,0 +1,11 @@
+{
+  "Clubs": [
+    {
+      "clubName": "Accounting Club",
+      "website": "https://acuhmanoa.org/",
+      "image": "https://images.squarespace-cdn.com/content/5f2371858296275165c4fed8/1598171416577-93L1YDJ9YHL3W7F5AMCA/New-AC-Logo-1024x1024.png?content-type=image%2Fpng",
+      "Admin": "john@foo.com",
+      "category": "Business"
+    }
+  ]
+}

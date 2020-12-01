@@ -57,5 +57,7 @@
   "monti": {
     "appId": "changeme",
     "appSecret": "changeme"
-  }
+  },
+  "loadAssetsFile": false,
+  "loadCSV": true
 }
