@@ -8,7 +8,8 @@ import { Clubs } from '../../api/club/Clubs';
 import Club from '../components/Club';
 
 let tagFilter = []; // array to hold tags that we are filtering for
-const allTags = ['Business', 'Engineering', 'Arts', 'Music', 'Other']; // list of tags you can sellect to filter for
+const allTags = ['Academic/Professional', 'Religious/Spiritual', 'Leisure/Recreational', 'Honorary Society', 'Ethnic/Cultural',
+  'Service', 'Business', 'Engineering', 'Arts', 'Music', 'Other']; // list of tags you can sellect to filter for
 
 class ListClubs extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
