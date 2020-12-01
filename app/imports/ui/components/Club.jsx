@@ -16,7 +16,7 @@ class Club extends React.Component {
 
   renderCard() {
     return (
-        <Card centered>
+        <Card centered id="club-card" >
           <Card.Content><Image
               src={this.props.club.image}
               style={{ width: 262, height: 262 }}

@@ -46,7 +46,7 @@ class ListClubs extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div className='redBackground'>
+        <div id="list-clubs-page" className='redBackground'>
           <Header inverted as="h2" textAlign="center">List of Available Clubs</Header>
           <Grid>
             <Grid.Column width={1}>

@@ -18,7 +18,7 @@ class ListMyClubs extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div className='redBackground'>
+        <div className='redBackground' id="list-my-clubs-page">
           <Container>
             <Header inverted as="h2" textAlign="center">List of My Clubs</Header>
             <CardGroup>

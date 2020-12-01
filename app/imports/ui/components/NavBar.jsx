@@ -16,9 +16,8 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>Engage-Manoa</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/userguide" key='userguide'>User Guide</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/listclubs" key='list'>List Clubs</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/listmyclubs" key='listmyclubs'>List My Clubs</Menu.Item>,
+            [<Menu.Item as={NavLink} id="navbar-list-clubs" activeClassName="active" exact to="/listclubs" key='list'>List Clubs</Menu.Item>,
+              <Menu.Item as={NavLink} id="navbar-list-my-clubs" activeClassName="active" exact to="/listmyclubs" key='listmyclubs'>List My Clubs</Menu.Item>,
             ]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
@@ -28,16 +27,16 @@ class NavBar extends React.Component {
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
-            <Dropdown text="Login" pointing="top right" icon={'user'}>
+            <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'user'}>
               <Dropdown.Menu>
-                <Dropdown.Item icon="user" text="Sign In" as={NavLink} exact to="/signin"/>
-                <Dropdown.Item icon="add user" text="Sign Up" as={NavLink} exact to="/signup"/>
+                <Dropdown.Item id="login-dropdown-sign-in" icon="user" text="Sign In" as={NavLink} exact to="/signin"/>
+                <Dropdown.Item id="login-dropdown-sign-up" icon="add user" text="Sign Up" as={NavLink} exact to="/signup"/>
               </Dropdown.Menu>
             </Dropdown>
           ) : (
-            <Dropdown text={this.props.currentUser} pointing="top right" icon={'user'}>
+            <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'user'}>
               <Dropdown.Menu>
-                <Dropdown.Item icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
+                <Dropdown.Item id="navbar-sign-out" icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
               </Dropdown.Menu>
             </Dropdown>
           )}
