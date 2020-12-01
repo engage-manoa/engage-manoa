@@ -36,7 +36,7 @@ function csvJSON(csv) {
     }
     ans.Clubs.push(obj);
   }
-  return ans; //JSON
+  return ans; // JSON
 }
 
 /** Initialize the collection if empty. */
