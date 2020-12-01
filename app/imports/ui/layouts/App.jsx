@@ -13,6 +13,7 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import UserGuide from '../pages/UserGuide';
 import ListContacts from '../pages/ListContacts';
 import AddContact from '../pages/AddContact';
 import ListClubs from '../pages/ListClubs';
@@ -31,6 +32,7 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
+              <ProtectedRoute path="/userguide" component={UserGuide}/>
               <ProtectedRoute path="/listcontacts" component={ListContacts}/>
               <ProtectedRoute path="/listmyclubs" component={ListMyClubs}/>
               <ProtectedRoute path="/listclubs" component={ListClubs}/>

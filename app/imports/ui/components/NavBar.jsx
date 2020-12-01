@@ -16,7 +16,8 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>Engage-Manoa</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/listclubs" key='list'>List Clubs</Menu.Item>,
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/userguide" key='userguide'>User Guide</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/listclubs" key='list'>List Clubs</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/listmyclubs" key='listmyclubs'>List My Clubs</Menu.Item>,
             ]
         ) : ''}
