@@ -27,7 +27,7 @@ class ClubsCollection {
       Admin: String,
       category: {
         type: String,
-        allowedValues: ['Business', 'Engineering', 'Arts', 'Music', 'Other'],
+        allowedValues: ['Academic/Professional', 'Religious/Spiritual', 'Leisure/Recreational', 'Honorary Society', 'Ethnic/Cultural', 'Service', 'Business', 'Engineering', 'Arts', 'Music', 'Other'],
         required: false,
         defaultValue: 'Other',
       },

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import AddToMyClub from './AddToMyClub';
 import { _ } from 'meteor/underscore';
+import AddToMyClub from './AddToMyClub';
 import { MyClubs } from '../../api/myclub/MyClubs';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
