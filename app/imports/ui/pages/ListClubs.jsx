@@ -38,7 +38,6 @@ class ListClubs extends React.Component {
     this.setState({
       tagFilterState: tagFilter,
     });
-    console.log(tagFilter);
   }
 
   render() {
@@ -74,7 +73,7 @@ class ListClubs extends React.Component {
                         return true;
                       }
                       for (let i = 0; i < tagFilter.length; i++) {
-                         if (club.category.indexOf(tagFilter[i]) !== -1) {
+                         if (club.category === tagFilter[i]) {
                            return true;
                          }
                       }
