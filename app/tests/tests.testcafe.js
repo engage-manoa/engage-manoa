@@ -14,7 +14,7 @@ fixture('engage-manoa localhost test with default db')
     .page('http://localhost:3000');
 
 test('Test that landing page shows up', async (testController) => {
-  testController.wait(500);
+  testController.wait(3000);
   await landingPage.isDisplayed(testController);
 });
 
