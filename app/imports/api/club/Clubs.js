@@ -26,10 +26,13 @@ class ClubsCollection {
       },
       Admin: String,
       category: {
-        type: String,
-        allowedValues: ['Academic/Professional', 'Religious/Spiritual', 'Leisure/Recreational', 'Honorary Society', 'Ethnic/Cultural', 'Service', 'Business', 'Engineering', 'Arts', 'Music', 'Other'],
+        type: Array,
         required: false,
         defaultValue: 'Other',
+      },
+      'category.$': {
+        type: String,
+        allowedValues: ['Academic/Professional', 'Religious/Spiritual', 'Leisure/Recreational', 'Honorary Society', 'Ethnic/Cultural', 'Service', 'Business', 'Engineering', 'Arts', 'Music', 'Other'],
       },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
