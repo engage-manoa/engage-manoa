@@ -1,15 +1,16 @@
 .backgroundImage{
-  background: url('https://wallpaperaccess.com/full/436964.jpg') no-repeat center center;
+  background: url('https://manoa.hawaii.edu/admissions/virtual/downloads/UHMCampusCenter1.jpg') no-repeat center center;
   background-size: cover;
 }
 footer{
-  background-color: #21BA45;
+  background-color: black;
+  /*#21BA45*/
 }
 .redBackground{
-  background-color: #21BA45;
+  background-color: whitesmoke;
 }
 body{
-  background-color: #21BA45;
+  background-color: whitesmoke;
 }
 .image{
   width: 262px !important;
