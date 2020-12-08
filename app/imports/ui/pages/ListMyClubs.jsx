@@ -20,7 +20,7 @@ class ListMyClubs extends React.Component {
     return (
         <div className='redBackground' id="list-my-clubs-page">
           <Container>
-            <Header inverted as="h2" textAlign="center">List of My Clubs</Header>
+            <Header as="h2" textAlign="center" className='pagetitles'>List of My Clubs</Header>
             <CardGroup>
               {this.props.myClubs.map((myClub, index) => <RemovableCard key={index} id={myClub._id} club={this.props.clubs.filter(current => current._id === myClub.clubId)}/>)}
             </CardGroup>

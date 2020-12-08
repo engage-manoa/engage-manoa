@@ -34,7 +34,7 @@ class RemovableCard extends React.Component {
               // eslint-disable-next-line max-len
               <Card.Content extra><Link to={`/edit/${this.props.club.map(current => current._id)}`}>Edit Info</Link> </Card.Content> : <Card.Content>Contact admin at: {this.props.club.map(current => current.Admin)}</Card.Content>}
           <Card.Content extra>
-            <Button icon='trash' onClick={() => this.deleteFromList(this.props.id)}/>
+            <Button variant="success" icon='trash' onClick={() => this.deleteFromList(this.props.id)}/>
           </Card.Content>
         </Card>
     );

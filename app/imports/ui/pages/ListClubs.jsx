@@ -48,7 +48,7 @@ class ListClubs extends React.Component {
   renderPage() {
     return (
         <div id="list-clubs-page" className='redBackground'>
-          <Header inverted as="h2" textAlign="center">List of Available Clubs</Header>
+          <Header as="h2" textAlign="center" className='pagetitles'>List of Available Clubs</Header>
           <Grid>
             <Grid.Column width={1}>
             </Grid.Column>
