@@ -53,14 +53,14 @@ class ListClubs extends React.Component {
             <Grid.Column width={1}>
             </Grid.Column>
             <Grid.Column width={3}>
-              <Container>
+              <Container className='tagbox'>
                 <Grid>
                   {allTags.map((value, index) => <Grid.Row key={index}>
                     <Checkbox checked = {tagFilter.indexOf(value) !== -1} label={value} onClick={() => this.handleTags(value) }/>    </Grid.Row>)}
                   <Grid.Row>   </Grid.Row>
                 </Grid>
                 <Button content='Clear All' onClick={() => this.clearTags() } />
-                <Button content='Print Tags' onClick={() => this.printTags() } />
+                <Button content='Print' onClick={() => this.printTags() } />
               </Container>
             </Grid.Column>
 
