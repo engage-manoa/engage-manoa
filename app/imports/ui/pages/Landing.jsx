@@ -5,7 +5,7 @@ import { Grid, Header, Icon } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
     return (
-        <div id='landing-page' className='backgroundImage'>
+        <div id="landing-page" className="backgroundImage">
           <Grid stackable centered container columns={2} rows={2}>
             <Grid.Row className='maintitle' style={ { marginTop: 100 } }>
               <Header inverted>Engage Manoa</Header>
