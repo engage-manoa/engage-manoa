@@ -16,7 +16,7 @@ class Club extends React.Component {
 
   renderCard() {
     return (
-        <Card centered id="club-card" >
+        <Card centered id="club-card">
           <Card.Content><Image
               src={this.props.club.image}
               style={{ width: 262, height: 262 }}
@@ -30,11 +30,12 @@ class Club extends React.Component {
           <Card.Content>
             <Card.Meta textAlign='center' className='border'>{this.props.club.category}</Card.Meta>
           </Card.Content>
-          <Card.Content as='h4'>Club Description:
+          <Card.Content className='greenwords' as='h4'>Club Description:
             <Card.Description>{this.props.club.description}</Card.Description>
           </Card.Content>
           {Meteor.user().username === this.props.club.Admin ?
-              <Card.Content extra><Link to={`/edit/${this.props.club._id}`}>Edit Info</Link> </Card.Content> : <Card.Content>Contact admin at: {this.props.club.Admin}</Card.Content>}
+              // eslint-disable-next-line max-len
+              <Card.Content extra><Link to={`/edit/${this.props.club._id}`}>Edit Info</Link> </Card.Content> : <Card.Content className='greenwords'>Contact admin at: {this.props.club.Admin}</Card.Content>}
           {_.contains(_.pluck(this.props.userClubs, 'clubId'), this.props.club._id) ? '' :
               <Card.Content extra>
             <AddToMyClub userClubs={_.pluck(this.props.userClubs)} clubId={this.props.club._id}/>

@@ -17,8 +17,8 @@ class AdminClub extends React.Component {
             </Card.Content>
             <Card.Content><Card.Header as='h3' textAlign='center'><a href={this.props.club.website}>{this.props.club.clubName}</a></Card.Header></Card.Content>
             <Card.Content><Card.Meta textAlign='center' className='border'>{this.props.club.category}</Card.Meta></Card.Content>
-            <Card.Content as='h4'>Club Description: <Card.Description>{this.props.club.description}</Card.Description></Card.Content>
-            <Card.Content>Contact admin at: {this.props.club.Admin}</Card.Content>
+            <Card.Content className='greenwords' as='h4'>Club Description: <Card.Description>{this.props.club.description}</Card.Description></Card.Content>
+            <Card.Content className='greenwords'>Contact admin at: {this.props.club.Admin}</Card.Content>
             <Card.Content extra><Link to={`/edit/${this.props.club._id}`}>Edit Info</Link></Card.Content>
         </Card>
     );

@@ -19,7 +19,7 @@ class ListAdminClubs extends React.Component {
     return (
         <div className='redBackground'>
           <Container>
-            <Header inverted as="h2" textAlign="center">List Clubs (Admin)</Header>
+            <Header as="h2" textAlign="center" className='pagetitles'>List Clubs (Admin)</Header>
             <CardGroup>
               {this.props.clubs.map((club, index) => <AdminClub key={index} club={club}/>)}
             </CardGroup>
