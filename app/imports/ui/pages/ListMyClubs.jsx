@@ -21,9 +21,9 @@ class ListMyClubs extends React.Component {
         <div className='redBackground' id="list-my-clubs-page">
           <Container>
             <Header as="h2" textAlign="center" className='pagetitles'>List of My Clubs</Header>
-            <CardGroup>
-              {this.props.myClubs.map((myClub, index) => <RemovableCard key={index} id={myClub._id} club={this.props.clubs.filter(current => current._id === myClub.clubId)}/>)}
-            </CardGroup>
+            {this.props.myClubs.length > 0 ? <CardGroup>
+              {/* eslint-disable-next-line max-len */}
+              {this.props.myClubs.map((myClub, index) => <RemovableCard key={index} id={myClub._id} club={this.props.clubs.filter(current => current._id === myClub.clubId)[0]}/>)}</CardGroup> : <Container textAlign='center' style={{ height: 500 }} as='h2'>You do not have any clubs added.</Container> }
           </Container>
         </div>
     );

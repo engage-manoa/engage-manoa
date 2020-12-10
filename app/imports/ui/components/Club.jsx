@@ -28,7 +28,8 @@ class Club extends React.Component {
             <Card.Header as='h3' textAlign='center'><a href={this.props.club.website}>{this.props.club.clubName}</a></Card.Header>
           </Card.Content>
           <Card.Content>
-            <Card.Meta textAlign='center' className='border'>{this.props.club.category}</Card.Meta>
+            <Card.Meta textAlign='center'
+                        className='border'>{_.map(this.props.club.category, (current, key) => (key >= 1 ? `/${current}` : current))}</Card.Meta>
           </Card.Content>
           <Card.Content className='greenwords' as='h4'>Club Description:
             <Card.Description>{this.props.club.description}</Card.Description>
