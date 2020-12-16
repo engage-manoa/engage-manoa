@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Button, CardGroup, Checkbox, Container, Header, Loader, Grid } from 'semantic-ui-react';
+import { Button, CardGroup, Checkbox, Container, Header, Loader, Grid, Sticky, Ref, Rail } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -13,6 +13,8 @@ const allTags = ['Academic/Professional', 'Religious/Spiritual', 'Leisure/Recrea
 
 class ListClubs extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
+
+  contextRef = createRef();
 
   constructor(props) {
     super(props);
@@ -53,15 +55,21 @@ class ListClubs extends React.Component {
             <Grid.Column width={1}>
             </Grid.Column>
             <Grid.Column width={3}>
-              <Container className='tagbox'>
-                <Grid>
-                  {allTags.map((value, index) => <Grid.Row key={index}>
-                    <Checkbox checked = {tagFilter.indexOf(value) !== -1} label={value} onClick={() => this.handleTags(value) }/>    </Grid.Row>)}
-                  <Grid.Row>   </Grid.Row>
-                </Grid>
-                <Button content='Clear All' onClick={() => this.clearTags() } />
-                <Button content='Print' onClick={() => this.printTags() } />
-              </Container>
+              <Ref innerRef={this.contextRef}>
+              <Rail position='middle'>
+              <Sticky context={this.contextRef} pushing>
+                    <Container className='tagbox'>
+                      <Grid>
+                        {allTags.map((value, index) => <Grid.Row key={index}>
+                          <Checkbox checked = {tagFilter.indexOf(value) !== -1} label={value} onClick={() => this.handleTags(value) }/>    </Grid.Row>)}
+                        <Grid.Row>   </Grid.Row>
+                      </Grid>
+                      <Button content='Clear All' onClick={() => this.clearTags() } />
+                      <Button content='Print' onClick={() => this.printTags() } />
+                    </Container>
+                  </Sticky>
+              </Rail>
+              </Ref>
             </Grid.Column>
 
             <Grid.Column width={12}>
