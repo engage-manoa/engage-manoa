@@ -20,6 +20,7 @@ import ListMyClubs from '../pages/ListMyClubs';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
+    const divStyle1 = { paddingTop: '30px' };
     return (
         <div className='redBackground'>
           <Router>
@@ -37,7 +38,9 @@ class App extends React.Component {
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
+            <div style={divStyle1}>
             <Footer/>
+            </div>
           </div>
         </Router>
         </div>
